@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace HalloEF_ModelFirst
 {
@@ -29,8 +20,22 @@ namespace HalloEF_ModelFirst
 
         private void Laden(object sender, RoutedEventArgs e)
         {
-            myGrid.ItemsSource = context.PersonSet.ToList();
+            //context = new Model1Container();
+
+            var query = context.PersonSet
+                               .OfType<Mitarbeiter>()
+                               .Include(x => x.Kunde)
+                               .Include(x => x.Abteilungen)
+                               .Where(x => x.Name.StartsWith("F"))
+                               .OrderBy(x => x.GebDatum.Month);
+            query.Load();
+
+            //MessageBox.Show(query.ToString());
+            Debug.WriteLine(query.ToString());
+            myGrid.ItemsSource = query.ToList();
         }
+
+
 
         private void Demo(object sender, RoutedEventArgs e)
         {
@@ -49,9 +54,21 @@ namespace HalloEF_ModelFirst
                     m.Abteilungen.Add(abt1);
                 if (i % 3 == 0)
                     m.Abteilungen.Add(abt2);
+
                 context.PersonSet.Add(m);
             }
             context.SaveChanges();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EinenLaden(object sender, RoutedEventArgs e)
+        {
+            var m = context.PersonSet.OfType<Mitarbeiter>().FirstOrDefault(x => x.Id == 7);
+            MessageBox.Show(m.Name);
         }
     }
 }

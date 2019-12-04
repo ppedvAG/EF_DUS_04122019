@@ -9,11 +9,22 @@
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top" Margin="4">
             <Button Click="Laden">Laden</Button>
-            <Button>Speichern</Button>
+            <Button Click="EinenLaden">Laden</Button>
+            <Button Click="Button_Click">Speichern</Button>
             <Button>Neu</Button>
             <Button>Löschen</Button>
             <Button Click="Demo">Demodaten erstellen</Button>
         </WrapPanel>
-        <DataGrid Name="myGrid"/>
+        <DataGrid Name="myGrid">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Abts">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ListBox DisplayMemberPath="Bezeichnung" ItemsSource="{Binding Abteilungen}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </DockPanel>
 </Window>

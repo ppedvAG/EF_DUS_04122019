@@ -138,7 +138,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="false">
           <EntitySet Name="PersonSet" EntityType="Model1.Person" />
           <AssociationSet Name="KundeMitarbeiter" Association="Model1.KundeMitarbeiter">
             <End Role="Kunde" EntitySet="PersonSet" />
