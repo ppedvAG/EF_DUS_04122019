@@ -14,8 +14,16 @@ namespace HalloEF_ModelFirst
     
     public partial class Kunde : Person
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Kunde()
+        {
+            this.Kopfform = new Rechteck();
+        }
+    
         public string Kundennummer { get; set; }
         public Nullable<int> MitarbeiterId { get; set; }
+    
+        public Rechteck Kopfform { get; set; }
     
         public virtual Mitarbeiter Mitarbeiter { get; set; }
     }

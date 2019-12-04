@@ -18,10 +18,13 @@ namespace HalloEF_ModelFirst
         public Abteilung()
         {
             this.Mitarbeiter = new HashSet<Mitarbeiter>();
+            this.Board = new Rechteck();
         }
     
         public int Id { get; set; }
         public string Bezeichnung { get; set; }
+    
+        public Rechteck Board { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mitarbeiter> Mitarbeiter { get; set; }

@@ -9,13 +9,13 @@
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top" Margin="4">
             <Button Click="Laden">Laden</Button>
-            <Button Click="EinenLaden">Laden</Button>
-            <Button Click="Button_Click">Speichern</Button>
-            <Button>Neu</Button>
-            <Button>Löschen</Button>
+            <Button Click="EinenLaden">Einen Laden</Button>
+            <Button Click="Speichern">Speichern</Button>
+            <Button Click="Neu">Neu</Button>
+            <Button Click="Dlete">Löschen</Button>
             <Button Click="Demo">Demodaten erstellen</Button>
         </WrapPanel>
-        <DataGrid Name="myGrid">
+        <DataGrid Name="myGrid" MouseDoubleClick="ShowState">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Abts">
                     <DataGridTemplateColumn.CellTemplate>

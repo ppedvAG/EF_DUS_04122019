@@ -46,6 +46,9 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Bezeichnung" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Board_Länge" Type="float" Nullable="false" />
+    <Property Name="Board_Breite" Type="float" Nullable="false" />
+    <Property Name="Board_Farbe" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="PersonSet_Kunde">
     <Key>
@@ -53,6 +56,9 @@
     </Key>
     <Property Name="Kundennummer" Type="nvarchar(max)" Nullable="false" />
     <Property Name="MitarbeiterId" Type="int" Nullable="true" />
+    <Property Name="Kopfform_Länge" Type="float" Nullable="false" />
+    <Property Name="Kopfform_Breite" Type="float" Nullable="false" />
+    <Property Name="Kopfform_Farbe" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PersonSet_Mitarbeiter">
@@ -167,6 +173,7 @@
           <Property Name="Kundennummer" Type="String" Nullable="false" />
           <NavigationProperty Name="Mitarbeiter" Relationship="Model1.KundeMitarbeiter" FromRole="Kunde" ToRole="Mitarbeiter" />
           <Property Name="MitarbeiterId" Type="Int32" Nullable="true" />
+          <Property Name="Kopfform" Type="Model1.Rechteck" Nullable="false" />
         </EntityType>
         <Association Name="KundeMitarbeiter">
           <End Type="Model1.Kunde" Role="Kunde" Multiplicity="*" />
@@ -187,11 +194,17 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Bezeichnung" Type="String" Nullable="false" />
           <NavigationProperty Name="Mitarbeiter" Relationship="Model1.MitarbeiterAbteilung" FromRole="Abteilung" ToRole="Mitarbeiter" />
+          <Property Name="Board" Type="Model1.Rechteck" Nullable="false" />
         </EntityType>
         <Association Name="MitarbeiterAbteilung">
           <End Type="Model1.Mitarbeiter" Role="Mitarbeiter" Multiplicity="*" />
           <End Type="Model1.Abteilung" Role="Abteilung" Multiplicity="*" />
         </Association>
+        <ComplexType Name="Rechteck" >
+          <Property Type="Double" Name="Länge" Nullable="false" />
+          <Property Type="Double" Name="Breite" Nullable="false" />
+          <Property Type="String" Name="Farbe" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -211,6 +224,11 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Kundennummer" ColumnName="Kundennummer" />
           <ScalarProperty Name="MitarbeiterId" ColumnName="MitarbeiterId" />
+          <ComplexProperty Name="Kopfform" TypeName="Model1.Rechteck">
+            <ScalarProperty Name="Länge" ColumnName="Kopfform_Länge" />
+            <ScalarProperty Name="Breite" ColumnName="Kopfform_Breite" />
+            <ScalarProperty Name="Farbe" ColumnName="Kopfform_Farbe" />
+          </ComplexProperty>
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Mitarbeiter)">
@@ -225,6 +243,11 @@
         <MappingFragment StoreEntitySet="AbteilungSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Bezeichnung" ColumnName="Bezeichnung" />
+          <ComplexProperty Name="Board" TypeName="Model1.Rechteck">
+            <ScalarProperty Name="Länge" ColumnName="Board_Länge" />
+            <ScalarProperty Name="Breite" ColumnName="Board_Breite" />
+            <ScalarProperty Name="Farbe" ColumnName="Board_Farbe" />
+          </ComplexProperty>
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

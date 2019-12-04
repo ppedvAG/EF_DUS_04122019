@@ -27,7 +27,8 @@ namespace HalloEF_ModelFirst
                                .Include(x => x.Kunde)
                                .Include(x => x.Abteilungen)
                                .Where(x => x.Name.StartsWith("F"))
-                               .OrderBy(x => x.GebDatum.Month);
+                               .OrderBy(x => x.GebDatum.Month)
+                               .Skip(20).Take(10);
             query.Load();
 
             //MessageBox.Show(query.ToString());
@@ -60,15 +61,48 @@ namespace HalloEF_ModelFirst
             context.SaveChanges();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void EinenLaden(object sender, RoutedEventArgs e)
         {
             var m = context.PersonSet.OfType<Mitarbeiter>().FirstOrDefault(x => x.Id == 7);
+            m.GebDatum = m.GebDatum.AddDays(1);
             MessageBox.Show(m.Name);
+        }
+
+        private void Speichern(object sender, RoutedEventArgs e)
+        {
+            context.SaveChanges();
+        }
+
+        private void ShowState(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (myGrid.SelectedItem is Mitarbeiter m)
+            {
+                //MessageBox.Show(m.Name);
+                context.Entry(m).State = EntityState.Modified;
+
+                MessageBox.Show(context.Entry(m).State.ToString());
+            }
+        }
+
+        private void Neu(object sender, RoutedEventArgs e)
+        {
+            var m = new Mitarbeiter() { Name = "FFFNEU" };
+            context.PersonSet.Add(m);
+        }
+
+        private void Dlete(object sender, RoutedEventArgs e)
+        {
+            //var cmd =  context.Database.Connection.CreateCommand();
+            //context.Database.Connection.Open();
+            //cmd.CommandText = "SELECT COUNT(*) Person";
+            //var cc = cmd.ExecuteScalar();
+            //MessageBox.Show(cc.ToString());
+            //context.Database.Connection.Close();
+
+            if (myGrid.SelectedItem is Mitarbeiter m)
+                context.PersonSet.Remove(m);
         }
     }
 }
+

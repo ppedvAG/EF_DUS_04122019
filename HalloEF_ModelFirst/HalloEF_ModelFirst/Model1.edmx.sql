@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/04/2019 11:49:02
+-- Date Created: 12/04/2019 15:41:14
 -- Generated from EDMX file: C:\Users\ar2\source\repos\ppedvAG\EF_DUS_04122019\HalloEF_ModelFirst\HalloEF_ModelFirst\Model1.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,41 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_KundeMitarbeiter]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PersonSet_Kunde] DROP CONSTRAINT [FK_KundeMitarbeiter];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MitarbeiterAbteilung_Mitarbeiter]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MitarbeiterAbteilung] DROP CONSTRAINT [FK_MitarbeiterAbteilung_Mitarbeiter];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MitarbeiterAbteilung_Abteilung]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MitarbeiterAbteilung] DROP CONSTRAINT [FK_MitarbeiterAbteilung_Abteilung];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Kunde_inherits_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PersonSet_Kunde] DROP CONSTRAINT [FK_Kunde_inherits_Person];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Mitarbeiter_inherits_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PersonSet_Mitarbeiter] DROP CONSTRAINT [FK_Mitarbeiter_inherits_Person];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[PersonSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PersonSet];
+GO
+IF OBJECT_ID(N'[dbo].[AbteilungSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AbteilungSet];
+GO
+IF OBJECT_ID(N'[dbo].[PersonSet_Kunde]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PersonSet_Kunde];
+GO
+IF OBJECT_ID(N'[dbo].[PersonSet_Mitarbeiter]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PersonSet_Mitarbeiter];
+GO
+IF OBJECT_ID(N'[dbo].[MitarbeiterAbteilung]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MitarbeiterAbteilung];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -38,7 +68,10 @@ GO
 -- Creating table 'AbteilungSet'
 CREATE TABLE [dbo].[AbteilungSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Bezeichnung] nvarchar(max)  NOT NULL
+    [Bezeichnung] nvarchar(max)  NOT NULL,
+    [Board_Länge] float  NOT NULL,
+    [Board_Breite] float  NOT NULL,
+    [Board_Farbe] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -46,6 +79,9 @@ GO
 CREATE TABLE [dbo].[PersonSet_Kunde] (
     [Kundennummer] nvarchar(max)  NOT NULL,
     [MitarbeiterId] int  NULL,
+    [Kopfform_Länge] float  NOT NULL,
+    [Kopfform_Breite] float  NOT NULL,
+    [Kopfform_Farbe] nvarchar(max)  NOT NULL,
     [Id] int  NOT NULL
 );
 GO
