@@ -16,10 +16,11 @@ namespace HalloEF_CodeFirst.Data
 
         //public EfContext() : base("Data Source=.;Initial Catalog=EfCodeFirst;Integrated Security=true")
         //public EfContext() : base("Server=(localdb)\\mssqllocaldb;Database=EfCodeFirst;Trusted_Connection=true")
-        public EfContext() : base("Server=.;Database=EfCodeFirst;Trusted_Connection=true")
+        public EfContext() : base("Server=.\\SQLEXPRESS;Database=EfCodeFirst;Trusted_Connection=true")
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EfContext>());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EfContext>());
             //Database.SetInitializer(new DropCreateDatabaseAlways<EfContext>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EfContext, Migrations.Configuration>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

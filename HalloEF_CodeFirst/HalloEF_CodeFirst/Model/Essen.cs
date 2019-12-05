@@ -10,6 +10,8 @@ namespace HalloEF_CodeFirst.Model
     {
         public int KCal { get; set; }
         public bool Vegan { get; set; }
+        public bool Schmeckt { get; set; }
+        //public bool Käse { get; set; }
 
     }
 
