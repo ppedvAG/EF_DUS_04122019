@@ -38,6 +38,13 @@ namespace HalloEF_CodeFirst
         private void Demodaten(object sender, RoutedEventArgs e)
         {
             var faker = new Faker("de");
+            var markt = new Markt()
+            {
+                Ort = faker.Address.City(),
+                Von = DateTime.MinValue,
+                Bis = DateTime.MaxValue
+            };
+
             for (int i = 0; i < 100; i++)
             {
                 var stand = new Stand()
@@ -45,7 +52,10 @@ namespace HalloEF_CodeFirst
                     Besitzer = faker.Name.FullName(),
                     Typ = faker.Random.Enum<Standtyp>(),
                     Name = faker.Company.CompanyName()
+
                 };
+                stand.Maerkte.Add(markt);
+
 
                 for (int j = 0; j < faker.Random.Int(3, 10); j++)
                 {

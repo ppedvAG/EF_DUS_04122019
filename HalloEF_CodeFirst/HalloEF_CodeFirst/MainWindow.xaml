@@ -12,6 +12,16 @@
             <Button Click="Laden">Lade Stände</Button>
             <Button Click="Demodaten">Demo daten</Button>
         </UniformGrid>
-        <DataGrid Name="myGrid"/>
+        <DataGrid Name="myGrid">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ListBox ItemsSource="{Binding Produkte}" DisplayMemberPath="Name"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </DockPanel>
 </Window>
