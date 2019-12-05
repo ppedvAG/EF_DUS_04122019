@@ -14,10 +14,17 @@
         </UniformGrid>
         <DataGrid Name="myGrid">
             <DataGrid.Columns>
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Produkte">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ListBox ItemsSource="{Binding Produkte}" DisplayMemberPath="Name"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Märkte">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ListBox ItemsSource="{Binding Maerkte}" DisplayMemberPath="Ort"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

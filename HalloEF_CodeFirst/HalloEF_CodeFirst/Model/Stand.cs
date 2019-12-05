@@ -9,8 +9,8 @@ namespace HalloEF_CodeFirst.Model
         public string Besitzer { get; set; }
         public string Name { get; set; }
         public Standtyp Typ { get; set; }
-        public ICollection<Produkt> Produkte { get; set; } = new HashSet<Produkt>();
-        public ICollection<Markt> Maerkte { get; set; } = new HashSet<Markt>();
+        public virtual ICollection<Produkt> Produkte { get; set; } = new HashSet<Produkt>();
+        public virtual ICollection<Markt> Maerkte { get; set; } = new HashSet<Markt>();
     }
 
     public enum Standtyp
