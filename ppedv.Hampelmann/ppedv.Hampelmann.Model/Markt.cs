@@ -8,6 +8,6 @@ namespace ppedv.Hampelmann.Model
         public string Ort { get; set; }
         public DateTime Von { get; set; }
         public DateTime Bis { get; set; }
-        public virtual ICollection<Stand> Staende { get; set; } = new HashSet<Stand>();
+        public virtual ICollection<MarktStand> Staende { get; set; } = new HashSet<MarktStand>();
     }
 }

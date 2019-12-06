@@ -18,8 +18,16 @@ namespace ppedv.Hampelmann.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Markt>().HasMany(x => x.Staende);
-            modelBuilder.Entity<Stand>().HasMany(x => x.Maerkte);
+            modelBuilder.Entity<MarktStand>().HasKey(x => new { x.MarktId, x.StandId });
+
+            modelBuilder.Entity<MarktStand>().HasOne(m => m.Markt)
+                                             .WithMany(x => x.Staende)
+                                             .HasForeignKey(x => x.MarktId);
+
+            modelBuilder.Entity<MarktStand>().HasOne(m => m.Stand)
+                                             .WithMany(x => x.Maerkte)
+                                             .HasForeignKey(x => x.StandId);
+
         }
     }
 }
