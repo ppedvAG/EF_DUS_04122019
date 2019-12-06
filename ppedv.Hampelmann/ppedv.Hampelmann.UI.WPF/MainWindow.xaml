@@ -1,0 +1,26 @@
+﻿<Window x:Class="ppedv.Hampelmann.UI.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ppedv.Hampelmann.UI.WPF"
+        xmlns:v="clr-namespace:ppedv.Hampelmann.UI.WPF.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Datei"/>
+            <MenuItem Header="Bearbeitern"/>
+            <MenuItem Header="Info"/>
+        </Menu>
+        <StatusBar Height="23" Background="LightSkyBlue" DockPanel.Dock="Bottom"/>
+        <TabControl >
+            <TabItem Header="Stände">
+                <v:StandView/>
+            </TabItem>
+            <TabItem Header="Märkte"/>
+        </TabControl>
+
+
+    </DockPanel>
+</Window>

@@ -17,7 +17,7 @@ namespace ppedv.Hampelmann.Data.EF
 
         public void Save()
         {
-            throw new NotImplementedException();
+            context.SaveChanges();
         }
     }
 }
