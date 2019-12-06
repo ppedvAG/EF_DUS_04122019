@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppedv.Hampelmann.UI.Web", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Hampelmann.UI.WPF", "ppedv.Hampelmann.UI.WPF\ppedv.Hampelmann.UI.WPF.csproj", "{96D58B73-5602-4D3B-BCD7-B1C284442261}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Hampelmann.UI.WinForms", "ppedv.Hampelmann.UI.WinForms\ppedv.Hampelmann.UI.WinForms.csproj", "{89101870-19B8-4D34-99B3-DFD1E90D8354}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winforms_Designer_hacked", "Winforms_Designer_hacked\Winforms_Designer_hacked.csproj", "{6A2ACD0D-131E-451D-8FD3-E1AE48AA6D63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{96D58B73-5602-4D3B-BCD7-B1C284442261}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96D58B73-5602-4D3B-BCD7-B1C284442261}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96D58B73-5602-4D3B-BCD7-B1C284442261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89101870-19B8-4D34-99B3-DFD1E90D8354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89101870-19B8-4D34-99B3-DFD1E90D8354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89101870-19B8-4D34-99B3-DFD1E90D8354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89101870-19B8-4D34-99B3-DFD1E90D8354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A2ACD0D-131E-451D-8FD3-E1AE48AA6D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A2ACD0D-131E-451D-8FD3-E1AE48AA6D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A2ACD0D-131E-451D-8FD3-E1AE48AA6D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A2ACD0D-131E-451D-8FD3-E1AE48AA6D63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
