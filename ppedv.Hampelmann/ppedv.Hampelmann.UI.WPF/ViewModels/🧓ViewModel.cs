@@ -19,6 +19,9 @@ namespace ppedv.Hampelmann.UI.WPF.ViewModels
 
         public ObservableCollection<Stand> StandListe { get; set; }
 
+        //Hallo 👨‍👩‍👧‍👧
+        string _ewfe = "🤢";
+
         public Stand SelectedStand
         {
             get => selectedStand;
