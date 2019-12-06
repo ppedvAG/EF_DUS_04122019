@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppedv.Hampelmann.Data.EF", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppedv.Hampelmann.Data.EF.Tests", "ppedv.Hampelmann.Data.EF.Tests\ppedv.Hampelmann.Data.EF.Tests.csproj", "{995F2F39-C0D6-4A4F-97E3-C09B8ED5CC0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Hampelmann.Logic", "ppedv.Hampelmann.Logic\ppedv.Hampelmann.Logic.csproj", "{C191BA60-7B0A-47E1-A582-D7D6430F1516}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppedv.Hampelmann.Logic", "ppedv.Hampelmann.Logic\ppedv.Hampelmann.Logic.csproj", "{C191BA60-7B0A-47E1-A582-D7D6430F1516}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Hampelmann.UI.DevConsole", "ppedv.Hampelmann.UI.DevConsole\ppedv.Hampelmann.UI.DevConsole.csproj", "{340BB207-C026-4874-BE15-05DF5334617E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppedv.Hampelmann.UI.DevConsole", "ppedv.Hampelmann.UI.DevConsole\ppedv.Hampelmann.UI.DevConsole.csproj", "{340BB207-C026-4874-BE15-05DF5334617E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Hampelmann.Logic.Tests", "ppedv.Hampelmann.Logic.Tests\ppedv.Hampelmann.Logic.Tests.csproj", "{D81AE77F-CD64-4EC5-802D-383E0BA5DC3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppedv.Hampelmann.Logic.Tests", "ppedv.Hampelmann.Logic.Tests\ppedv.Hampelmann.Logic.Tests.csproj", "{D81AE77F-CD64-4EC5-802D-383E0BA5DC3A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppedv.Hampelmann.UI.Web", "ppedv.Hampelmann.UI.Web\ppedv.Hampelmann.UI.Web.csproj", "{EFC02BE5-0943-46BE-A51C-AFB3D17DB79D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D81AE77F-CD64-4EC5-802D-383E0BA5DC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D81AE77F-CD64-4EC5-802D-383E0BA5DC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D81AE77F-CD64-4EC5-802D-383E0BA5DC3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFC02BE5-0943-46BE-A51C-AFB3D17DB79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFC02BE5-0943-46BE-A51C-AFB3D17DB79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC02BE5-0943-46BE-A51C-AFB3D17DB79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFC02BE5-0943-46BE-A51C-AFB3D17DB79D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
