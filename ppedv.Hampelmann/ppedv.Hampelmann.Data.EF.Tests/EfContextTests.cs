@@ -1,3 +1,5 @@
+using AutoFixture;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ppedv.Hampelmann.Model;
 using System;
@@ -64,7 +66,35 @@ namespace ppedv.Hampelmann.Data.EF.Tests
                 //check DELETE
                 var loaded = con.Staende.Find(stand.Id);
                 Assert.IsNull(loaded);
+                loaded.Should().BeNull();
             }
         }
+
+        [TestMethod]
+        public void EfContext_Stand_AutoFix()
+        {
+            var fix = new Fixture();
+            fix.Behaviors.Add(new OmitOnRecursionBehavior());
+            var stand = fix.Build<Stand>()
+                           .Without(x => x.Produkte)
+                           .Without(x => x.Maerkte)
+                           .Without(x => x.Id)
+                           .Create();
+
+            using (var con = new EfContext())
+            {
+                con.Staende.Add(stand);
+                con.SaveChanges();
+            }
+
+            using (var con = new EfContext())
+            {
+                var loaded = con.Staende.Find(stand.Id);
+                loaded.Should().BeEquivalentTo(stand);
+            }
+
+        }
+
+        //todo mehr tests
     }
 }
