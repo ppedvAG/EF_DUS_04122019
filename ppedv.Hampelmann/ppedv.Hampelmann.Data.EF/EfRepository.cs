@@ -1,37 +1,41 @@
 ﻿using ppedv.Hampelmann.Model;
 using ppedv.Hampelmann.Model.Contracts;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace ppedv.Hampelmann.Data.EF
 {
-    public class EfRepository : IRepository
+    public class EfRepository<T> : IRepository<T> where T : Entity
     {
-        EfContext context = new EfContext();
+        protected EfContext context = null;
 
-        public void Add<T>(T entity) where T : Entity
+        public EfRepository(EfContext context)
+        {
+            this.context = context;
+        }
+
+        public void Add(T entity)
         {
             context.Set<T>().Add(entity);
         }
 
-        public void Delete<T>(T entity) where T : Entity
+        public void Delete(T entity)
         {
             context.Remove(entity);
         }
 
-        public IEnumerable<T> GetAll<T>() where T : Entity
+        public IEnumerable<T> GetAll()
         {
             return context.Set<T>().ToList();
         }
 
-        public T GetById<T>(long id) where T : Entity
+        public T GetById(long id)
         {
             return context.Set<T>().Find(id);
         }
 
-        public IQueryable<T> Query<T>() where T : Entity
+        public IQueryable<T> Query()
         {
             return context.Set<T>();
         }
@@ -41,9 +45,9 @@ namespace ppedv.Hampelmann.Data.EF
             context.SaveChanges();
         }
 
-        public void Update<T>(T entity) where T : Entity
+        public void Update(T entity)
         {
-            var loaded = GetById<T>(entity.Id);
+            var loaded = GetById(entity.Id);
             if (loaded != null)
                 context.Entry(loaded).CurrentValues.SetValues(entity);
         }

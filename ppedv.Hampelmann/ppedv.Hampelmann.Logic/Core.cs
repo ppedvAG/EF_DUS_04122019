@@ -8,19 +8,20 @@ namespace ppedv.Hampelmann.Logic
 {
     public class Core
     {
-        public IRepository Repository { get; }
+        public IUnitOfWork UnitOfWork { get; }
 
-        public Core(IRepository repo)
+        public Core(IUnitOfWork uow)
         {
-            Repository = repo;
+            UnitOfWork = uow;
         }
 
-        public Core() : this(new Data.EF.EfRepository())
+        public Core() : this(new Data.EF.EfUnitOfWork())
         { }
 
         public Stand GetStandMitTeuerstensProdukten()
         {
-            return  Repository.Query<Stand>().OrderByDescending(x => x.Produkte.Sum(y => y.Preis)).FirstOrDefault();
+            return UnitOfWork.GetRepo<Stand>().Query().OrderByDescending(x => x.Produkte.Sum(y => y.Preis)).FirstOrDefault();
+            //return UnitOfWork.StandRepository.Query().OrderByDescending(x => x.Produkte.Sum(y => y.Preis)).FirstOrDefault();
         }
 
         public void CreateDemoData()
@@ -55,10 +56,10 @@ namespace ppedv.Hampelmann.Logic
                         Preis = faker.Random.Decimal(0.5m, 100),
                         Stand = stand
                     };
-                    Repository.Add(p);
+                    UnitOfWork.GetRepo<Plunder>().Add(p);
                 }
             }
-            Repository.Save();
+            UnitOfWork.Save();
         }
     }
 }

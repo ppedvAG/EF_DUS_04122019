@@ -3,18 +3,15 @@ using System.Linq;
 
 namespace ppedv.Hampelmann.Model.Contracts
 {
-    public interface IRepository
+    public interface IRepository<T> where T : Entity
     {
-        IEnumerable<T> GetAll<T>() where T : Entity;
-        IQueryable<T> Query<T>() where T : Entity;
+        IEnumerable<T> GetAll();
+        IQueryable<T> Query();
 
-        T GetById<T>(long id) where T : Entity;
+        T GetById(long id);
 
-        void Add<T>(T entity) where T : Entity;
-        void Delete<T>(T entity) where T : Entity;
-        void Update<T>(T entity) where T : Entity;
-
-        void Save();
-
+        void Add(T entity);
+        void Delete(T entity);
+        void Update(T entity);
     }
 }

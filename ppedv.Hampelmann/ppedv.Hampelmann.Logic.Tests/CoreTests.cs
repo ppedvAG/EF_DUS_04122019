@@ -12,8 +12,12 @@ namespace ppedv.Hampelmann.Logic.Tests
         [TestMethod]
         public void Core_GetStandMitTeuerstensProdukten___()
         {
-            var mock = new Mock<IRepository>();
-            mock.Setup(x => x.Query<Stand>()).Returns(() =>
+            var repoMock = new Mock<IRepository<Stand>>();
+            var uowMock = new Mock<IUnitOfWork>();
+
+            uowMock.Setup(x => x.GetRepo<Stand>()).Returns(repoMock.Object);
+
+            repoMock.Setup(x => x.Query()).Returns(() =>
             {
                 var s1 = new Stand() { Name = "s1" };
                 s1.Produkte.Add(new Plunder() { Preis = 6m });
@@ -24,7 +28,7 @@ namespace ppedv.Hampelmann.Logic.Tests
                 s2.Produkte.Add(new Plunder() { Preis = 8m });
                 return new[] { s1, s2 }.AsQueryable();
             });
-            var core = new Core(mock.Object);
+            var core = new Core(uowMock.Object);
 
             var result = core.GetStandMitTeuerstensProdukten();
 

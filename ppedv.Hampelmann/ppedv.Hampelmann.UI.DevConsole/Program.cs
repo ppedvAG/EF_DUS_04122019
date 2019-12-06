@@ -15,10 +15,10 @@ namespace ppedv.Hampelmann.UI.DevConsole
 
             var core = new Core();
 
-            if (core.Repository.Query<Produkt>().Count() == 0)
+            if (core.UnitOfWork.GetRepo<Produkt>().Query().Count() == 0)
                 core.CreateDemoData();
 
-            foreach (var s in core.Repository.GetAll<Stand>())
+            foreach (var s in core.UnitOfWork.StandRepository.GetAll())
             {
                 Console.WriteLine($"{s.Name} {s.Besitzer}");
                 foreach (var p in s.Produkte)
