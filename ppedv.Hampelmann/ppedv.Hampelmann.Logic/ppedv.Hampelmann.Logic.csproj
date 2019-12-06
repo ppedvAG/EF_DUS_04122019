@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ppedv.Hampelmann.Data.EF\ppedv.Hampelmann.Data.EF.csproj" />
+    <ProjectReference Include="..\ppedv.Hampelmann.Model\ppedv.Hampelmann.Model.csproj" />
+  </ItemGroup>
+
+</Project>
