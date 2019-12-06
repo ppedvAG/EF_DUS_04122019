@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Hampelmann.Logic", "p
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Hampelmann.UI.DevConsole", "ppedv.Hampelmann.UI.DevConsole\ppedv.Hampelmann.UI.DevConsole.csproj", "{340BB207-C026-4874-BE15-05DF5334617E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.Hampelmann.Logic.Tests", "ppedv.Hampelmann.Logic.Tests\ppedv.Hampelmann.Logic.Tests.csproj", "{D81AE77F-CD64-4EC5-802D-383E0BA5DC3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{340BB207-C026-4874-BE15-05DF5334617E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{340BB207-C026-4874-BE15-05DF5334617E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{340BB207-C026-4874-BE15-05DF5334617E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D81AE77F-CD64-4EC5-802D-383E0BA5DC3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81AE77F-CD64-4EC5-802D-383E0BA5DC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81AE77F-CD64-4EC5-802D-383E0BA5DC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81AE77F-CD64-4EC5-802D-383E0BA5DC3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -27,6 +27,9 @@ namespace ppedv.Hampelmann.UI.DevConsole
                 }
             }
 
+            var stand = core.GetStandMitTeuerstensProdukten();
+            Console.WriteLine($"Deluxe Stand: {stand.Name} von {stand.Besitzer}");
+
             Console.WriteLine("Ende");
             Console.ReadLine();
         }

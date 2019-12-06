@@ -2,6 +2,7 @@
 using ppedv.Hampelmann.Model;
 using ppedv.Hampelmann.Model.Contracts;
 using System;
+using System.Linq;
 
 namespace ppedv.Hampelmann.Logic
 {
@@ -16,6 +17,11 @@ namespace ppedv.Hampelmann.Logic
 
         public Core() : this(new Data.EF.EfRepository())
         { }
+
+        public Stand GetStandMitTeuerstensProdukten()
+        {
+            return  Repository.Query<Stand>().OrderByDescending(x => x.Produkte.Sum(y => y.Preis)).FirstOrDefault();
+        }
 
         public void CreateDemoData()
         {
