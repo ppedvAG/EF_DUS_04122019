@@ -15,7 +15,7 @@ namespace ppedv.Hampelmann.UI.DevConsole
 
             var core = new Core();
 
-            if (core.Repository.GetAll<Produkt>().Count() == 0)
+            if (core.Repository.Query<Produkt>().Count() == 0)
                 core.CreateDemoData();
 
             foreach (var s in core.Repository.GetAll<Stand>())

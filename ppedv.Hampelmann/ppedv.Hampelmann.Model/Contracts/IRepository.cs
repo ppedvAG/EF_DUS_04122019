@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ppedv.Hampelmann.Model.Contracts
 {
     public interface IRepository
     {
         IEnumerable<T> GetAll<T>() where T : Entity;
+        IQueryable<T> Query<T>() where T : Entity;
 
         T GetById<T>(long id) where T : Entity;
 

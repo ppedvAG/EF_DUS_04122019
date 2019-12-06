@@ -31,6 +31,11 @@ namespace ppedv.Hampelmann.Data.EF
             return context.Set<T>().Find(id);
         }
 
+        public IQueryable<T> Query<T>() where T : Entity
+        {
+            return context.Set<T>();
+        }
+
         public void Save()
         {
             context.SaveChanges();

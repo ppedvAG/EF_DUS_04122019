@@ -13,7 +13,8 @@ namespace ppedv.Hampelmann.Data.EF
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=Hampelmann_dev;Trusted_Connection=true");
+            optionsBuilder.UseLazyLoadingProxies()
+                          .UseSqlServer("Server=.\\SQLEXPRESS;Database=Hampelmann_dev;Trusted_Connection=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
